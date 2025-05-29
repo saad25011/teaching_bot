@@ -1,0 +1,5 @@
+#App Environment
+/.env
+
+#PythonVirtualEnvironments
+/myenv
