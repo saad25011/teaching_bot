@@ -75,5 +75,4 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'brag'
-          slot-name: 'Production'
           
