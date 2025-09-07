@@ -8,7 +8,7 @@ from fastapi import APIRouter, UploadFile, File, Form, HTTPException, status
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import RedirectResponse
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain_community.embeddings import OpenAIEmbeddings
@@ -38,6 +38,10 @@ llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name="gpt-4o")
 # Input model
 class PromptInput(BaseModel):
     user_input: str
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello World"}
 
 # Endpoint with ChatPromptTemplate
 @app.post("/chat")
