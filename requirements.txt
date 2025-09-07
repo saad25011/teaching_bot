@@ -29,5 +29,4 @@ tiktoken==0.4.0
 # ...rest of your packages as before
 nltk==3.8.1
 sentence-transformers==2.6.1
-faiss-cpu==1.7.4
 pypdf==4.2.0
