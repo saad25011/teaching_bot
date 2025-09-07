@@ -28,16 +28,11 @@ from fastapi.middleware.cors import CORSMiddleware
 # Load API key from .env
 load_dotenv() 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-if OPENAI_API_KEY is None:
-    print("API_KEY is not set in the environment variables.")
-else:
-    print(key, "API_KEY is set in the environment variables.")
-
 # Init FastAPI
 app = FastAPI()
 
 
-# Add this right after app = FastAPI()
+# # Add this right after app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # For development. In production, specify your domain
