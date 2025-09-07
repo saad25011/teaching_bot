@@ -21,6 +21,10 @@ from langchain.prompts.chat import ChatPromptTemplate, HumanMessagePromptTemplat
 from langchain.schema import BaseMessage
 from addknowledgeBase import add_knowledgebase
 from core.cong import key  
+from fastapi.middleware.cors import CORSMiddleware
+
+
+
 # Load API key from .env
 load_dotenv() 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -32,6 +36,15 @@ else:
 # Init FastAPI
 app = FastAPI()
 
+
+# Add this right after app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # For development. In production, specify your domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Init OpenAI model
 llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model_name="gpt-4o")
 
