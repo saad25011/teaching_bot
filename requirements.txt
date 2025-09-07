@@ -5,9 +5,10 @@ pydantic==2.11.4
 pydantic-settings==2.9.1
 pydantic_core==2.33.2
 
+# LangChain ecosystem (keep versions aligned)
 langchain==0.3.25
-langchain-community==0.3.24
 langchain-core==0.3.61
+langchain-community==0.3.24
 langchain-experimental==0.3.4
 langchain-openai==0.3.18
 langchain-text-splitters==0.3.8
@@ -20,12 +21,14 @@ httpx-sse==0.4.0
 typing_extensions==4.13.2
 
 pdfminer.six==20250506
-unstructured==0.17.2
-pi-heif>=0.8.0
-unstructured[local-inference]>=0.12.0
+# Keep only one version of unstructured (with local inference support)
+unstructured[local-inference]==0.17.2
+
+# Optional: remove if Render gives trouble with system deps
+# pi-heif>=0.8.0  
 
 # ✅ Newly Added
-tiktoken==0.6.0
+tiktoken==0.7.0
 nltk==3.8.1
 sentence-transformers==2.6.1
 pypdf==4.2.0
