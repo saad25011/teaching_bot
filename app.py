@@ -152,7 +152,7 @@ async def add(query: str = Form(...), temp: float = 0, collection_name: str = Fo
         total_docs = db._collection.count()
         print(f"Total documents in vector store: {total_docs}")
         fetch_k = min(total_docs, 1000)
-        k = min(fetch_k, 20)
+        k = min(fetch_k, 2)
 
         qa_with_source = RetrievalQA.from_chain_type(
             llm=llm,
